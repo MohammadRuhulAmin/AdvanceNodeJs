@@ -28,8 +28,15 @@ app.get('/',(req,res)=>{
 
 app.post('/',(req,res)=>{
     const body = req.body;
-
-    res.send('This is post request ' + body.message);
+    const user = new models.User({
+        username:body.username,
+        createdAt:new Date()
+    })
+   user.save().then((result)=>{
+        res.status(200).send('User Saved Id : '+ result._id);
+   }).catch((error)=>{
+        res.status(500).send(error);
+   });
 })
 
 app.listen(port , ()=>{
