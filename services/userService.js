@@ -32,6 +32,15 @@ export const update = async (user) => {
 
 export const deleteById = async (id) => {    
     const User = models.User;
-    let result = await User.deleteOne({_id:id});
-    return result;
+    /**
+     * if the user is not null ,  delete it 
+     * return user notFound
+     */
+    let model = await User.findById(id);
+    if(model){
+        let result = await User.deleteOne({_id:id});
+        return result;
+    }
+    return new Error ('User Not Found by this ID  : '+ id);
+    
 }
