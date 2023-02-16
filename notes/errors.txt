@@ -1,0 +1,9 @@
+
+
+The errors are : 
+1. User Input bad request 
+2. 404 not found 
+3. 401 Unauthorized
+4. 403 forbidden 
+5. 500 error 
+etc 

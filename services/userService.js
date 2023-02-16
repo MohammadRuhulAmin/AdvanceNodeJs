@@ -32,10 +32,6 @@ export const update = async (user) => {
 
 export const deleteById = async (id) => {    
     const User = models.User;
-    /**
-     * if the user is not null ,  delete it 
-     * return user notFound
-     */
     let model = await User.findById(id);
     if(model){
         let result = await User.deleteOne({_id:id});
