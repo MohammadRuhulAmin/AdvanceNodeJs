@@ -27,7 +27,10 @@ const putHandler  = async (req,res)=>{
 const deleteHandler = async (req, res) => {
     const id = req.params.id;
     const result = await deleteById(id);
-    if(result instanceof Error)res.status(404).send(result.message)
+    if(result instanceof Error){
+        const code = result.getCode();
+        res.status(code).send(result.message)
+    }
     else res.status(200).send("User deleted");
 }
 

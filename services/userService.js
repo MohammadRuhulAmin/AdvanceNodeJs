@@ -1,6 +1,7 @@
 import models from "../models";
 
 
+
 export const saveUser = async (user)=>{
     const model = new models.User({
         username:user.username,
@@ -37,6 +38,6 @@ export const deleteById = async (id) => {
         let result = await User.deleteOne({_id:id});
         return result;
     }
-    return new Error ('User Not Found by this ID  : '+ id);
+    return new NotFound('User Not Found By the Id ' + id );
     
 }
