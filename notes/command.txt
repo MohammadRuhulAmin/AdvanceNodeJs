@@ -1,2 +1,3 @@
 npx nodemon  -r esm .\index.js 
 npm start 
+npm install joi  (this is for validation of a form !)
