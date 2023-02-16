@@ -1,31 +1,22 @@
 import express from "express";
-import models from './models/index.js';
-import mongoose  from "mongoose";
+import models from './models/index';
+
+import connectWithDb from "./mongo";
 
 const app = express();
 const port = 3000;
 app.use(express.json());
 
-const log = (msg) =>console.log(msg);
 
-const uri = "mongodb://127.0.0.1:27017/parcelkoi";
-const options = {};
-mongoose.set('strictQuery', true);
-const connectWithDb = ()=>{
-    mongoose.connect(uri,options,(err,db)=>{
-        if(err)console.error(err);
-        else{
-            log("Database connection established");
-        }
-    })
-}
 
 connectWithDb();
+
 
 app.get('/',(req,res)=>{
     res.send('Hello world ' + req.query.id);
 });
 
+const log = (message) =>console.log(message)
 app.post('/',(req,res)=>{
     const body = req.body;
     const user = new models.User({
@@ -39,8 +30,19 @@ app.post('/',(req,res)=>{
    });
 })
 
+
 app.listen(port , ()=>{
     console.log(`Listening to port No ${port}`);
 });
 
 log(models)
+
+
+
+
+// configuration steps : 
+// 1. Up and Running the express server 
+// 2. configure the exress server 
+// 3. handle the routes of the server 
+// 4. use directory to import 
+// 5. use async await function  
