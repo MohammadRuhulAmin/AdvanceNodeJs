@@ -6,32 +6,44 @@ import {getAllUsers, saveUser, update , deleteById} from "../services/userServic
 const router = express.Router();
 
 
-const getHandler =async (req,res)=>{
-    const users = await getAllUsers();
-    res.status(200).send(users);
+const getHandler =async (req,res,next)=>{
+    try{
+        const users = await getAllUsers();
+        res.status(200).send(users);
+    }catch(error){
+        return next(error,req,res);
+    }
 };
 
-const postHandler = async (req,res)=>{
-    const body = req.body;
-    const user = await saveUser(body);
-    res.status(201).send(user._id);
+const postHandler = async (req,res,next)=>{
+    try{
+        const body = req.body;
+        const user = await saveUser(body);
+        res.status(201).send( "New User ID : "+ user._id);
+    }catch(error){
+        return next(error,req,res);
+    }
     
 }
 
-const putHandler  = async (req,res)=>{
-    const body = req.body;
-    const user = await update(body);
-    res.status(200).send(user._id);
+const putHandler  = async (req,res,next)=>{
+    try{
+        const body = req.body;
+        const user = await update(body);
+        res.status(200).send("User Updated ID : " +  user._id);
+    }catch(error){
+        return next(error,req,res);
+    }
 }
 
-const deleteHandler = async (req, res) => {
-    const id = req.params.id;
-    const result = await deleteById(id);
-    if(result instanceof Error){
-        const code = result.getCode();
-        res.status(code).send(result.message)
+const deleteHandler = async (req, res, next) => {
+    try{
+        const id = req.params.id;
+        const result = await deleteById(id);
+        res.status(200).send("User Deleted Successfully!");
+    }catch(error){
+        return next(error,req,res);
     }
-    else res.status(200).send("User deleted");
 }
 
 

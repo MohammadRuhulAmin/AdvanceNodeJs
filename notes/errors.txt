@@ -7,3 +7,5 @@ The errors are :
 4. 403 forbidden 
 5. 500 error , internal server error 
 etc 
+
+need to make a centralized system for handling errors of a large scalable system !

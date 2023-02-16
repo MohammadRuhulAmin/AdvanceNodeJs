@@ -3,14 +3,22 @@ export class GeneralError extends Error {
         super();
         this.message = message;
     }
-    getCode(){
-        return 400;}
+    getCode(){return 400;}
 }
 
 export class BadRequest extends GeneralError {
+    constructor(message){
+        super(message);
+        this.name = "BadRequest"
+    }
     getCode(){return 400;}
 }
 
 export class NotFound extends GeneralError {
-    getCode(){return 404;}
+    constructor(message) {
+        super(message);
+        this.name = 'NotFound';
+    }
+
+    getCode() { return 404; }    
 }
