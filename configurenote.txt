@@ -1,0 +1,11 @@
+// configuration steps : 
+// 1. Up and Running the express server 
+// 2. configure the exress server 
+// 3. handle the routes of the server 
+// 4. use directory to import 
+// 5. use async await function  
+
+// 3 layer archetecture 
+// controller layer : process the http request (user controller )
+// service layer : process the object and send to data layer / repository layer (user service class) 
+// data layer : process the data and get/set it to database (mongoose layer)
