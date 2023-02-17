@@ -9,3 +9,14 @@
 // controller layer : process the http request (user controller )
 // service layer : process the object and send to data layer / repository layer (user service class) 
 // data layer : process the data and get/set it to database (mongoose layer)
+
+
+need a robust logging system  for scalable application ! 
+
+what are the logs : 
+1.console.log
+2.file log 
+3. mongodb log 
+4. elastic search log 
+
+

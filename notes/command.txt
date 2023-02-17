@@ -1,3 +1,12 @@
 npx nodemon  -r esm .\index.js 
 npm start 
 npm install joi  (this is for validation of a form !)
+
+
+
+for installing logging framework 
+1. npm install winston 
+2.npm install express-winston 
+3. npm install winston-daily-rotate-file 
+4.npm install winston-mongodb
+5.npm install winston-elasticsearch
