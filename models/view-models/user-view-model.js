@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const schema =  Joi.object().keys({
-    username:Joi.string().alphanum().min(3).max(30).required()
+    username:Joi.string().min(3).max(30).required()
 });
 
 const validate = (data)=>{

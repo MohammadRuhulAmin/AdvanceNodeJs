@@ -9,7 +9,7 @@ export const handleValidation = (validate)=>{
         return next();
        }
        const {details} = result.error;
-       const messages =  details.map((e)=>{e.message})
+       const messages =  details.map((e)=>e.message)
        const msg =  messages.join(',')
        throw new BadRequest(msg);
     }
